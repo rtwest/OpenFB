@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -47,13 +47,12 @@
         .controller('MyController', function ($scope, ngFB) {
 
             // Defaults to sessionStorage for storing the Facebook token
-            ngFB.init({appId: 'YOUR_FB_APP_ID'});
-
+            //ngFB.init({appId: '550469961767419' });
             //  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
-            //  openFB.init({appId: 'YOUR_FB_APP_ID', tokenStore: window.localStorage});
+            ngFB.init({appId: '550469961767419', tokenStore: window.localStorage});
 
             $scope.login = function() {
-                ngFB.login({scope: 'email,read_stream,publish_actions'}).then(
+                ngFB.login({scope: 'email'}).then(
                     function(response) {
                         alert('Facebook login succeeded, got access token: ' + response.authResponse.accessToken);
                     },
